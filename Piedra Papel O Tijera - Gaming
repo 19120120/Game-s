@@ -1,0 +1,136 @@
+using System;
+
+namespace Piedra_Papel_Tijera
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = " Juego Piedra Papel O Tijera - Gaming By Daneil Gtz";
+
+			//Juego piedra papel o tijera contra la pc de nombre robotina 
+
+			//Delcaracion de variables 
+			Random rand = new Random();
+			int robotina;
+			//= rnd.Next(3 maxValue);
+			int op;
+			bool seguir = true;
+			do
+            {
+				//Instrucciones de uso para el jugador 
+				Console.WriteLine(":: BIENVENIDO Al JUEGO PIEDRA PAPEL O TIJERAS ::");
+				Console.WriteLine(":: MENU ::");
+				Console.WriteLine("");
+				Console.WriteLine("1. PIEDRA");
+				Console.WriteLine("2. PAPEL");
+				Console.WriteLine("3. TIJERAS");
+				Console.WriteLine("");
+
+				//Entrada de opcion de jugador 
+				Console.Write("Ingrese su opcion de juego :");
+
+				//Validacion de entrada de usuario 
+				do
+				{
+					op = int.Parse(Console.ReadLine());
+					if (op < 1 || op > 3)
+						Console.Write("Valor incorrecto. " + "Ingresalo nuevamente: ");
+				} while (op < 1 || op > 3);
+
+				//Genera la opcion de juego de robotina para que sea aleatoria en un rango no mayor a #3 
+				robotina = 1 + rand.Next(3);
+
+				//Muestra de que opcion dentro de los parametros uso la maquina
+				if (robotina == 1)
+				{
+					Console.WriteLine("Robotina jugó: " + "Piedra");
+				}else if (robotina == 2)
+				{
+					Console.WriteLine("Robotina jugó: " + "Papel");
+				}else
+				{
+					Console.WriteLine("Robotina jugó: " + "Tijeras");
+				}
+
+
+					//Comparacion de juego para determinacion de ganador 
+					switch (op)
+					{
+					case 1:
+						if (op == robotina)
+						{
+							Console.WriteLine("Empate");
+						}
+						else if (op > robotina)
+						{
+							Console.WriteLine("Usted Gana");
+						}
+						else
+						{
+							Console.WriteLine("Usted Pierde");
+						}
+
+						break;
+					case 2:
+						if (op == robotina)
+						{
+							Console.WriteLine("Empate");
+						}
+						else if (op > robotina)
+						{
+							Console.WriteLine("Usted Gana");
+						}
+						else
+						{
+							Console.WriteLine("Usted Pierde");
+						}
+
+						break;
+					case 3:
+						if (op == robotina)
+						{
+							Console.WriteLine("Empate");
+						}
+						else if (op > robotina)
+						{
+							Console.WriteLine("Usted Gana");
+						}
+						else
+						{
+							Console.WriteLine("Usted Pierde");
+						}
+
+						break;
+
+
+
+					}
+
+				//Operacion para determinar si vuelve a realizarse el juego
+				do
+				{
+					Console.WriteLine("Desea volver a jugar");
+					Console.WriteLine("0 NO 1 SI");
+					int op1 = int.Parse(Console.ReadLine());
+
+					if (op1 == 1)
+					{
+						seguir = true;
+					}
+					else if (op1 == 0)
+					{
+						seguir = false;
+						Console.WriteLine("Gracias por jugar, Buen día");
+
+					}else 
+					{
+						Console.WriteLine("Opcion invalida");
+					}
+
+				} while (seguir != true	&& seguir != false);
+
+			} while (seguir != false);
+		}
+    }
+}
